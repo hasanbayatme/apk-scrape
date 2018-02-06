@@ -19,7 +19,7 @@ git clone https://github.com/EmpireWorld/apk-scrape.git
 Use the command line:
 
 ```
-apk-scrape -p ./packages.txt -d ./download
+./apk-scrape -p ./packages.txt -d ./download
 ```
 
 ## Help
