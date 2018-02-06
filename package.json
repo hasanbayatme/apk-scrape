@@ -1,0 +1,34 @@
+{
+  "name": "apk-scrape",
+  "version": "1.0.0",
+  "description": "Scrape and download APK using package identifier from https://apkpure.com",
+  "main": "index.js",
+  "bin": {
+    "apk-scrape": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hasan Bayat <hasanbayat1393@gmail.com> (https://hasanbayat.me)",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.14.0",
+    "got": "^8.0.3",
+    "mkdirp": "^0.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmpireWorld/apk-scrape.git"
+  },
+  "keywords": [
+    "apk",
+    "scrape",
+    "scraping",
+    "apkpure"
+  ],
+  "bugs": {
+    "url": "https://github.com/EmpireWorld/apk-scrape/issues"
+  },
+  "homepage": "https://github.com/EmpireWorld/apk-scrape#readme"
+}
