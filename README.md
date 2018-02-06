@@ -8,6 +8,20 @@ Scrape and download APK using package identifier from [APKPure](https://apkpure.
 apk-scrape -p ./packages.txt -d ./download
 ```
 
+## Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/EmpireWorld/apk-scrape.git
+```
+
+Use the command line:
+
+```
+apk-scrape -p ./packages.txt -d ./download
+```
+
 ## Help
 
 ```
