@@ -1,1 +1,5 @@
 com.supercell.clashofclans
+com.dalcomsoft.ssb
+com.turborilla.bmx2
+com.blued.international
+io.wifimap.wifimap

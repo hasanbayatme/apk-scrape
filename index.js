@@ -5,6 +5,7 @@ const util = require('util');
 const mkdirp = require('mkdirp');
 const cheerio = require('cheerio');
 const program = require('commander');
+const async = require('async');
 
 program
   .version('1.0.0')
@@ -13,6 +14,7 @@ program
   .option('-r, --report', 'add this flag to log the reports')
   .option('-p, --packages-file [path]', 'the path to the file that contains the packages identifier', './packages.txt')
   .option('-d, --download-folder [path]', 'the path to the folder for storing downloaded apks', './download')
+  .option('-l, --limit [number]', 'the number of packages to download in parallel', 3)
   .parse(process.argv);
 
 let packagesFilePath = program.packagesFile;
@@ -20,6 +22,7 @@ let downloadFolderPath = program.downloadFolder;
 let domain = 'https://apkpure.com';
 let searchUrl = domain + '/search?q=%s';
 let report = program.report | false;
+let limit = program.limit;
 
 fs.readFile(packagesFilePath, 'utf-8', (err, data) => {
   if (err) {
@@ -30,7 +33,13 @@ fs.readFile(packagesFilePath, 'utf-8', (err, data) => {
       throw err;
     }
     let packages = data.toString().split(/\r?\n/);
-    downloadPackage(packages[0]);
+    async.eachLimit(packages, limit, (packageName, cb) => {
+      if (packageName) {
+        downloadPackage(packageName, cb);
+      }
+    }, (err) => {
+      throw err;
+    });
   });
 });
 
